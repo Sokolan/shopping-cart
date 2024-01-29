@@ -1,0 +1,31 @@
+.navigationBar {
+  position: sticky;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  padding: 0px 40px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.863);
+}
+
+.navigationBar > h1 {
+  margin: 24px;
+}
+
+.navigationBar > .links {
+  display: flex;
+  gap: 16px;
+}
+
+@media (prefers-color-scheme: light) {
+  .navigationBar {
+    background: linear-gradient(180deg, rgb(255, 255, 255), rgba(253, 253, 253, 0.774));
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.52);
+  }
+
+  .navigationBar > h1 {
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 8px rgb(0, 0, 0);
+  }
+}

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import NavigationBar from "./assets/components/NavigationBar";
+import Loading from "./assets/components/Loading";
+import ErrorPage from "./assets/components/ErrorPage";
 
 const App = () => {
   const [shopItems, setShopItems] = useState(null);
@@ -29,14 +32,12 @@ const App = () => {
     getItems();
   }, []);
 
+  if (loading) return <Loading />;
+  if (itemsError !== null) return <ErrorPage error={itemsError} />;
   return (
     <div className="app">
-      <nav>
-        <h1>Shopping Cart</h1>
-        <Link to="homepage">Home Page</Link>
-        <Link to="shop">store</Link>
-        <Link to="cart">Cart</Link>
-      </nav>
+      <NavigationBar />
+
       <Outlet context={[shopItems, setShopItems]} />
     </div>
   );

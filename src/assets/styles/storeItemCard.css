@@ -1,0 +1,21 @@
+.storeItemCard {
+  height: 400px;
+  width: 240px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.storeItemCard > img {
+  height: auto;
+  width: 120px;
+}
+
+*{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}

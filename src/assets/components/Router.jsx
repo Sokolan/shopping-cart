@@ -3,7 +3,7 @@ import App from "../../App";
 import Cart from "./Cart";
 import HomePage from "./HomePage";
 import ErrorPage from "./ErrorPage";
-import Shop from "./Shop";
+import Store from "./Store";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -16,8 +16,8 @@ const Router = () => {
           element: <HomePage />,
         },
         {
-          path: "shop",
-          element: <Shop />,
+          path: "store",
+          element: <Store />,
         },
         {
           path: "cart",
