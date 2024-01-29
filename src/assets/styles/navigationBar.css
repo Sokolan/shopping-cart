@@ -15,7 +15,27 @@
 
 .navigationBar > .links {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 16px;
+  font-size: 1.3rem;
+}
+
+.cartLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cartLink > .itemsAmount {
+  margin-bottom: 40px;
+  padding: 2px;
+  font-size: 1rem;
+  /* border: 1px solid rgba(0, 0, 0, 0.681); */
+  border-radius: 50%;
+  box-shadow: 2px 1px 8px rgb(228, 163, 0);
+  
 }
 
 @media (prefers-color-scheme: light) {

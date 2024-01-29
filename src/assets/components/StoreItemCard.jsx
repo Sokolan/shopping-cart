@@ -1,23 +1,39 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import "../styles/storeItemCard.css";
+import AmountModifier from "./AmountModifier";
 
 const StoreItemCard = ({ storeItem, updateItemAmount }) => {
   const [showDescription, setShowDescription] = useState(false);
   return (
     <div className="storeItemCard">
       <img src={storeItem.image} alt="name" />
-      <p>{storeItem.title}</p>
-      {showDescription ? <p>{storeItem.description}</p> : null}
-      <div className="amountModify">
-        <button
-          onClick={() => {
-            setShowDescription(!showDescription);
-          }}
-        >
-          {showDescription ? "Hide Description" : "Show Description"}
-        </button>
-      </div>
+      <p>
+        {storeItem.title}
+        <br />
+        <br />
+        <b>{storeItem.price} $</b>
+        <br />
+        <br />
+        {showDescription ? (
+          <>
+            <b>Description:</b> <br /> {storeItem.description}
+          </>
+        ) : null}
+      </p>
+
+      <button
+        onClick={() => {
+          setShowDescription(!showDescription);
+        }}
+      >
+        {showDescription ? "Hide Description" : "Show Description"}
+      </button>
+      <AmountModifier
+        id={storeItem.id}
+        amount={storeItem.amount}
+        setAmount={updateItemAmount}
+      />
     </div>
   );
 };

@@ -6,7 +6,7 @@ import Loading from "./assets/components/Loading";
 import ErrorPage from "./assets/components/ErrorPage";
 
 const App = () => {
-  const [shopItems, setShopItems] = useState(null);
+  const [storeItems, setStoreItems] = useState(null);
   const [itemsError, setItemsError] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -20,9 +20,9 @@ const App = () => {
           return response.json();
         })
         .then((items) => {
-          setShopItems(
+          setStoreItems(
             items.map((item) => {
-              return { ...item, amountSelected: 0 };
+              return { ...item, amount: 0 };
             })
           );
         })
@@ -31,14 +31,21 @@ const App = () => {
     };
     getItems();
   }, []);
+  
 
   if (loading) return <Loading />;
   if (itemsError !== null) return <ErrorPage error={itemsError} />;
+
+  const numberOfStoreItems = storeItems.reduce(
+    (accumulated, current) => accumulated + current.amount,
+    0
+  );
+
   return (
     <div className="app">
-      <NavigationBar />
+      <NavigationBar itemsAmount={numberOfStoreItems} />
 
-      <Outlet context={[shopItems, setShopItems]} />
+      <Outlet context={[storeItems, setStoreItems]} />
     </div>
   );
 };

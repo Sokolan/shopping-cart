@@ -1,16 +1,26 @@
 import { useOutletContext } from "react-router-dom";
-import PropTypes from "prop-types";
 import StoreItemCard from "./StoreItemCard";
-import "../styles/store.css"
+import "../styles/store.css";
 
 const Store = () => {
-  const [shopItems, setShopItems] = useOutletContext();
-  const updateItemAmout = (itemId, newAmount) => {};
+  const [storeItems, setStoreItems] = useOutletContext();
+  const updateItemAmout = (itemId, newAmount) => {
+    setStoreItems(
+      storeItems.map((storeItem) => {
+        if (storeItem.id === itemId) {
+          console.log(newAmount);
+          return { ...storeItem, amount: newAmount >= 0 ? newAmount : 0 };
+        }
+
+        return storeItem;
+      })
+    );
+  };
 
   // if (storeItems === null) return null;
   return (
     <div className="store">
-      {shopItems.map((storeItem) => {
+      {storeItems.map((storeItem) => {
         return (
           <StoreItemCard
             storeItem={storeItem}
@@ -25,7 +35,8 @@ const Store = () => {
 
 export default Store;
 
-Store.propTypes = {
-  storeItems: PropTypes.arrayOf(PropTypes.object).isRequired,
-  setStoreItems: PropTypes.func.isRequired,
-};
+// No validation when using context?
+// Store.propTypes = {
+//   storeItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   setStoreItems: PropTypes.func.isRequired,
+// };

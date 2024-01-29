@@ -1,21 +1,42 @@
 .storeItemCard {
-  height: 400px;
-  width: 240px;
-  overflow: scroll;
+  width: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
 .storeItemCard > img {
-  height: auto;
+  height: 120px;
   width: 120px;
 }
 
-*{
-    -ms-overflow-style: none;
+.storeItemCard > p {
+  height: 8rem;
+  overflow: scroll;
 }
-::-webkit-scrollbar {
-    display: none;
+
+.storeItemCard > p::-webkit-scrollbar {
+  display: none;
+}
+
+.storeItemCard > .amountModifier {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.storeItemCard > .amountModifier > input {
+  width: 40px;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.storeItemCard > .amountModifier > input::-webkit-outer-spin-button,
+.storeItemCard > .amountModifier > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
