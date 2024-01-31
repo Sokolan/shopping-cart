@@ -1,9 +1,14 @@
 import { useOutletContext } from "react-router-dom";
 import "../styles/cart.css";
 import CartItem from "./CartItem";
+import CartTotal from "./CartTotal";
 
 export default function Cart() {
   const [storeItems, setStoreItems] = useOutletContext();
+  const itemsAmount = storeItems.reduce(
+    (accumulated, current) => accumulated + current.amount,
+    0
+  );
   const setCartItemAmount = (itemId, newAmount) => {
     setStoreItems(
       storeItems.map((storeItem) => {
@@ -29,15 +34,20 @@ export default function Cart() {
   return (
     <div className="cart">
       <div className="itemsSelected">
-        {storeItems.map((storeItem) => (
-          <CartItem
-            cartItem={storeItem}
-            setCartItemAmount={setCartItemAmount}
-            removeItem={removeItem}
-            key={storeItem.id}
-          />
-        ))}
+        {itemsAmount !== 0 ? (
+          storeItems.map((storeItem) => (
+            <CartItem
+              cartItem={storeItem}
+              setCartItemAmount={setCartItemAmount}
+              removeItem={removeItem}
+              key={storeItem.id}
+            />
+          ))
+        ) : (
+          <p>No Items Selected</p>
+        )}
       </div>
+      <CartTotal cartItems={storeItems} />
     </div>
   );
 }

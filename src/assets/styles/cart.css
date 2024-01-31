@@ -7,3 +7,15 @@
   border-radius: 8px;
   margin: 40px;
 }
+
+.cartTotal {
+  text-align: right;
+  margin-right: 5%;
+  display: flex;
+  justify-content: right;
+  gap: 16px;
+}
+
+.cartTotal > button {
+  border: 1px solid rgba(128, 128, 128, 0.51);
+}

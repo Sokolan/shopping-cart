@@ -14,17 +14,18 @@ const CartItem = ({ cartItem, setCartItemAmount, removeItem }) => {
     <div className="cartItem">
       <img src={cartItem.image} alt={cartItem.title} />
       <p>{cartItem.title}</p>
+      <p className="itemPrice">Item Price: {cartItem.price}$</p>
       <AmountModifier
         id={cartItem.id}
         amount={cartItem.amount}
         setAmount={setCartItemAmount}
       />
       {validateRemoval ? (
-        <>
+        <div className="removeValidation">
           <p>Remove Item?</p>
           <button onClick={() => handleRemoval(true)}>&#10003;</button>
           <button onClick={() => handleRemoval(false)}>&#88;</button>
-        </>
+        </div>
       ) : (
         <button onClick={() => setValidateRemovel(true)}>Remove</button>
       )}

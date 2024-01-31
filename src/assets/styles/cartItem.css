@@ -1,6 +1,6 @@
 .cartItem {
   display: grid;
-  grid-template-columns: 60px 3fr 1fr 1fr;
+  grid-template-columns: 60px 5fr 3fr 1fr 1fr;
   align-items: center;
   gap: 10px;
   text-align: left;
@@ -18,6 +18,10 @@
   align-items: center;
 }
 
+.cartItem > .itemPrice {
+  text-align: right;
+}
+
 .cartItem input {
   text-align: center;
   width: 40px;
@@ -28,4 +32,8 @@
 .cartItem > .amountModifier > input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.removeValidation {
+  text-align: center;
 }
