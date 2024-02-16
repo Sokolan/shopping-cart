@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { Outlet } from "react-router-dom";
-import NavigationBar from "./assets/components/NavigationBar";
-import Loading from "./assets/components/Loading";
-import ErrorPage from "./assets/components/ErrorPage";
+import NavigationBar from "../navigationBar/NavigationBar";
+import Loading from "../router/Loading";
+import ErrorPage from "../router/ErrorPage";
 
 const App = () => {
   const [storeItems, setStoreItems] = useState(null);
@@ -31,7 +31,6 @@ const App = () => {
     };
     getItems();
   }, []);
-  
 
   if (loading) return <Loading />;
   if (itemsError !== null) return <ErrorPage error={itemsError} />;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import "../styles/cartItem.css";
-import AmountModifier from "./AmountModifier";
+import "./cartItem.css";
+import AmountModifier from "../../util/AmountModifier";
 
 const CartItem = ({ cartItem, setCartItemAmount, removeItem }) => {
   const [validateRemoval, setValidateRemovel] = useState(false);
@@ -23,8 +23,10 @@ const CartItem = ({ cartItem, setCartItemAmount, removeItem }) => {
       {validateRemoval ? (
         <div className="removeValidation">
           <p>Remove Item?</p>
-          <button onClick={() => handleRemoval(true)}>&#10003;</button>
-          <button onClick={() => handleRemoval(false)}>&#88;</button>
+          <div className="removeValidationButtons">
+            <button onClick={() => handleRemoval(true)}>&#10003;</button>
+            <button onClick={() => handleRemoval(false)}>&#88;</button>
+          </div>
         </div>
       ) : (
         <button onClick={() => setValidateRemovel(true)}>Remove</button>

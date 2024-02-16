@@ -37,3 +37,8 @@
 .removeValidation {
   text-align: center;
 }
+
+.removeValidationButtons {
+  display: flex;
+  justify-content: centerba;
+}

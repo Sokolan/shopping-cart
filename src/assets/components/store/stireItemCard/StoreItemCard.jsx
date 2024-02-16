@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "../styles/storeItemCard.css";
-import AmountModifier from "./AmountModifier";
+import "./storeItemCard.css";
+import AmountModifier from "../../util/AmountModifier";
 
 const StoreItemCard = ({ storeItem, updateItemAmount }) => {
   const [showDescription, setShowDescription] = useState(false);

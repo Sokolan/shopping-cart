@@ -1,7 +1,7 @@
 import { useOutletContext } from "react-router-dom";
-import "../styles/cart.css";
-import CartItem from "./CartItem";
-import CartTotal from "./CartTotal";
+import "./cart.css";
+import CartItem from "./cartItem/CartItem";
+import CartTotal from "./cartTotal/CartTotal";
 
 export default function Cart() {
   const [storeItems, setStoreItems] = useOutletContext();

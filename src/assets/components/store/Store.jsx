@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
-import StoreItemCard from "./StoreItemCard";
-import "../styles/store.css";
+import StoreItemCard from "./stireItemCard/StoreItemCard";
+import "./store.css";
 
 const Store = () => {
   const [storeItems, setStoreItems] = useOutletContext();
